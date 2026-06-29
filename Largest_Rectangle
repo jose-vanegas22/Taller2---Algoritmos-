@@ -1,0 +1,60 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'largestRectangle' function below.
+#
+# The function is expected to return a LONG_INTEGER.
+# The function accepts INTEGER_ARRAY h as parameter.
+#
+
+def largestRectangle(h):
+    # Write your code here
+    pila = [] # Inicializo pila para guardar indices
+    max_area = 0 # Inicializo area maxima encontrada
+    i = 0 # Inicializo la posicion actual
+    
+    while i < len(h): # Para saber si hay edifcios por revisar
+        if not pila or h[i] >= h[pila[-1]]: # Si el numero que guarda el indice es mayor que el anterior entra
+            pila.append(i) # Lo añade a la pila
+            i += 1
+        else: # Si no se cumplio lla condicion calcula con lo que hay en la pila
+            tope = pila.pop()
+            if pila:
+                ancho = i - pila[-1] - 1
+            else:
+                ancho = i
+                
+            area = h[tope] * ancho
+            max_area = max(max_area, area)
+            
+    # Lo siguiente que hare sera procesar los edificios que quedaron en la pila
+    while pila:
+        tope = pila.pop()
+        if pila:
+            ancho = len(h) - pila[-1] - 1
+        else:
+            ancho = len(h)
+            
+        area = h[tope] * ancho
+        max_area = max(max_area, area)
+        
+    return max_area
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    h = list(map(int, input().rstrip().split()))
+
+    result = largestRectangle(h)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
