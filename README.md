@@ -26,7 +26,7 @@ O(n)
 ### Opción 2: Localmente
 1. Tener Python 3 instalado
 2. Clonar el repositorio:
-   git clone [https://github.com/tu-usuario/tu-repo.git](https://github.com/jose-vanegas22/Taller2---Algoritmos-)
+   git clone https://github.com/jose-vanegas22/Taller2---Algoritmos-
 3. Entrar a la carpeta:
    cd tu-repo
 4. Ejecutar:
