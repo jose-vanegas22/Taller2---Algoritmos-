@@ -1,7 +1,7 @@
 # Taller2---Algoritmos-
 
 # PRIMER ALGORITMO
-# Linked List - Detect a Cycle
+Linked List - Detect a Cycle
 
 ## Problema
 Detectar si una linked list contiene un ciclo.
